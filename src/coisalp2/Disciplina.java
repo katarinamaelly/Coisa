@@ -12,12 +12,14 @@ public class Disciplina {
     }
 
     public void cadastraHoras(int horas) {
-
+        this.horas += horas;
         // mudar as horas, geralmente é um set
     }
 
     public void cadastraNota(int nota, double valorNota) {
         // mudar as horas, geralmente é um set
+        this.nota += nota;
+        this.valorNota += valorNota;
     }
 
     public boolean aprovado() {

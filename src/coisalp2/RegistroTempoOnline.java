@@ -27,11 +27,11 @@ public class RegistroTempoOnline {
     }
 
     public void adicionaTempoOnline(int tempo) {
-
+        this.tempo += tempo;
     }
 
     public boolean atingiuMetaTempoOnline() {
-
+        // fazer um equals com o tempo online esperado if(tempo)
     }
 
     @Override
