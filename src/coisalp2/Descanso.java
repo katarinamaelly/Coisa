@@ -1,17 +1,17 @@
 package coisalp2;
-
+// declaração dos atributos da classe
 public class Descanso {
     private String status;
     private int HorasDescanso;
     private int NumeroSemanas;
-
+// construtor da classe Descanso
     public Descanso(String status, int HorasDescanso, int NumeroSemanas) {
         this.status = status;
         this.HorasDescanso = HorasDescanso;
         this.NumeroSemanas = NumeroSemanas;
 
     }
-
+// getters and setters
     public String getStatus() {
         return status;
     }
@@ -23,7 +23,7 @@ public class Descanso {
     public int getNumeroSemanas() {
         return NumeroSemanas;
     }
-
+//
     public void defineHorasDescanso (int HorasDescanso) {
 
     }
