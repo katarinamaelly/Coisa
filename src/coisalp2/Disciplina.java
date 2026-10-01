@@ -4,37 +4,52 @@ public class Disciplina {
     private String nomeDisciplina;
     private int horas;
     private double[] notas;
-    private double valorNota;
-    private int nota;
 
+    // construtor da classe
     public Disciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
+        double[] notas = new double[4];
     }
 
     public void cadastraHoras(int horas) {
         this.horas += horas;
         // mudar as horas, geralmente é um set
     }
-
+// cadastrar a nota no array de notas criado
     public void cadastraNota(int nota, double valorNota) {
-        // mudar as horas, geralmente é um set
-        this.nota += nota;
-        this.valorNota += valorNota;
+        notas[nota - 1] = valorNota;
     }
 
-    public boolean aprovado() {
+    // método em que precisarei para retornar a média para representação String da classe
+    public double calculaMedia() {
         double somaNotas = 0.0;
         for(double item: notas) {
             somaNotas += item;
         }
         double media = somaNotas / 4;
 
-        if(media >= 7.0) {
+        return media;
+    }
+
+    // foi aprovado ou nn?
+    public boolean aprovado() {
+        if(calculaMedia() >= 7.0) {
             return true;
         } else {
             return false;
         }
     }
+
+    // novamente, vou precisar da quantidade de notas por causa da representação necessária
+    public int pegaQtdNotas() {
+        int qtdNotas = 0;
+        for(double item: notas) {
+            qtdNotas++;
+        }
+
+        return qtdNotas;
+    }
+
 
     public String getNomeDisciplina() {
         return nomeDisciplina;
@@ -48,32 +63,10 @@ public class Disciplina {
         return notas;
     }
 
-    public double getValorNota() {
-        return valorNota;
-    }
-
-    public int getNota() {
-        return nota;
-    }
 
     @Override
     public String toString() {
-        return super.toString();
+        return getNomeDisciplina() + " " + pegaQtdNotas() + " " + calculaMedia() + notas[];
+
     }
 }
-
-/* Por padrão toda disciplina tem 4 notas. Calcula-se a média da disciplina, fazendo a média
-aritmética dessas 4 notas (sem arredondamento). Todo aluno é considerado aprovado quando atinge
-a média igual ou acima de 7.0. Caso alguma das notas não seja cadastrada, ela é considerada como
-zero. Se a alguma nota ( nota 1, nota 2, nota 3 ou nota 4 ) for cadastrada mais de uma vez,
-consideramos a última nota cadastrada (ou seja, é possível substituir notas nesse sistema.
-Por exemplo, caso o aluno faça uma prova de reposição). É possível cadastrar horas de estudo
-para determinada disciplina. As horas de estudo são cumulativas, ou seja, a nova quantidade
-cadastrada soma-se às previamente cadastradas.
-O toString() deve gerar uma representação da disciplina que contenha o nome da disciplina, o número de horas de estudo, a média do aluno e as notas de cada prova.
-Cada objeto que representa uma disciplina começa sem horas de estudo cadastradas. Para desenvolver esta funcionalidade, você deve implementar a classe Disciplina que tem o construtor Disciplina(String nomeDisciplina). Implemente, também, os métodos:
-void cadastraHoras(int horas)
-void cadastraNota(int nota, double valorNota)  // notas possíveis: 1, 2, 3 e 4
-boolean aprovado( )
-String toString( )
-/*

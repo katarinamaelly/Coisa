@@ -1,7 +1,7 @@
 package coisalp2;
 
 public class RegistroTempoOnline {
-    private String nomeDisciplina;
+    private final String nomeDisciplina;
     private int tempoOnlineEsperado;
     private int tempo;
 
@@ -31,12 +31,17 @@ public class RegistroTempoOnline {
     }
 
     public boolean atingiuMetaTempoOnline() {
+        if(tempo != tempoOnlineEsperado) {
+            return false;
+        } else { return true;
+        }
+        }
         // fazer um equals com o tempo online esperado if(tempo)
-    }
 
-    @Override
+
     public String toString() {
-        return super.toString();
+        return getNomeDisciplina() + " " + getTempo() + "/" + getTempoOnlineEsperado();
+
     }
 }
 
