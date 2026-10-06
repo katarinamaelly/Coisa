@@ -1,5 +1,7 @@
 package coisalp2;
 
+import java.util.Arrays;
+
 public class Disciplina {
     private String nomeDisciplina;
     private int horas;
@@ -66,7 +68,7 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return getNomeDisciplina() + " " + pegaQtdNotas() + " " + calculaMedia() + notas[];
+        return getNomeDisciplina() + " " + pegaQtdNotas() + " " + calculaMedia() + " " + Arrays.toString(notas);
 
     }
 }

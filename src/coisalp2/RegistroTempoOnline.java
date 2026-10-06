@@ -36,7 +36,6 @@ public class RegistroTempoOnline {
         } else { return true;
         }
         }
-        // fazer um equals com o tempo online esperado if(tempo)
 
 
     public String toString() {

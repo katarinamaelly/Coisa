@@ -12,7 +12,7 @@ public class RegistroResumos {
     public int getNumeroDeResumos() {
         return numeroDeResumos;
     }
-
+    // acredito que você ainda está terminando mas no Coisa.java os metodos estão com o nome diferente, ex.: esse adicionaResumos tá só como "adiciona"
     public void adicionaResumo(String tema, String conteudo) {
         resumos[numeroDeResumos] = new Resumo(tema, conteudo);
 
