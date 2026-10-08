@@ -1,14 +1,14 @@
 package coisalp2;
-// declaração dos atributos da classe
+/** declaração dos atributos da classe */
 public class Descanso {
     private String status;
-    private int HorasDescanso;
-    private int NumeroSemanas;
+    private int horasDescanso;
+    private int numeroSemanas;
 // construtor da classe Descanso
     public Descanso(String status, int HorasDescanso, int NumeroSemanas) {
         this.status = status;
-        this.HorasDescanso = HorasDescanso;
-        this.NumeroSemanas = NumeroSemanas;
+        this.horasDescanso = HorasDescanso;
+        this.numeroSemanas = NumeroSemanas;
 
     }
 // getters and setters
@@ -17,26 +17,27 @@ public class Descanso {
     }
 
     public int getHorasDescanso() {
-        return HorasDescanso;
+        return horasDescanso;
     }
 
     public int getNumeroSemanas() {
-        return NumeroSemanas;
+        return numeroSemanas;
     }
 //
     public void defineHorasDescanso (int HorasDescanso) {
-        this.HorasDescanso += HorasDescanso;
+        this.horasDescanso = HorasDescanso;
     }
 
     public void defineNumeroSemanas(int NumeroSemanas) {
-        this.NumeroSemanas += NumeroSemanas;
+        this.numeroSemanas = NumeroSemanas;
     }
 
     public String getStatusGeral() {
         this.status = "cansado";
-        if(HorasDescanso >= 26) {
+        if(numeroSemanas > 0 && (double) horasDescanso / numeroSemanas >= 26) {
             this.status = "descansado";
         }
+        return status;
     }
 
 

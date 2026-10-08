@@ -1,12 +1,13 @@
 package coisalp2;
 
 public class RegistroTempoOnline {
-    private final String nomeDisciplina;
-    private int tempoOnlineEsperado;
+    private final String nomeDisciplina; /** nunca muda depois de criado */
+    private final int tempoOnlineEsperado;
     private int tempo;
 
     public RegistroTempoOnline(String nomeDisciplina) {
-        this.nomeDisciplina = nomeDisciplina;
+        this(nomeDisciplina, 120); /** deixando as horas pré-definidas de todas disciplinas com 120,
+         quando eu não tiver modificações no momento de "construir a disciplina */
     }
 
     public RegistroTempoOnline(String nomeDisciplina, int tempoOnlineEsperado) {
@@ -31,9 +32,8 @@ public class RegistroTempoOnline {
     }
 
     public boolean atingiuMetaTempoOnline() {
-        if(tempo != tempoOnlineEsperado) {
-            return false;
-        } else { return true;
+        if(tempo >= tempoOnlineEsperado) { return true;
+        } else { return false;
         }
         }
 

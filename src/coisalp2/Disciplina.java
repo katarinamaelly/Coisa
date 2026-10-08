@@ -3,21 +3,21 @@ package coisalp2;
 import java.util.Arrays;
 
 public class Disciplina {
-    private String nomeDisciplina;
+    private final String nomeDisciplina;
     private int horas;
     private double[] notas;
 
-    // construtor da classe
+    /** construtor da classe */
     public Disciplina(String nomeDisciplina) {
         this.nomeDisciplina = nomeDisciplina;
-        double[] notas = new double[4];
+        this.notas = new double[4];
     }
 
     public void cadastraHoras(int horas) {
         this.horas += horas;
         // mudar as horas, geralmente é um set
     }
-// cadastrar a nota no array de notas criado
+/** cadastrar a nota no array de notas criado */
     public void cadastraNota(int nota, double valorNota) {
         notas[nota - 1] = valorNota;
     }
@@ -33,7 +33,7 @@ public class Disciplina {
         return media;
     }
 
-    // foi aprovado ou nn?
+    /** foi aprovado ou nn? */
     public boolean aprovado() {
         if(calculaMedia() >= 7.0) {
             return true;
@@ -42,7 +42,7 @@ public class Disciplina {
         }
     }
 
-    // novamente, vou precisar da quantidade de notas por causa da representação necessária
+    /** novamente, vou precisar da quantidade de notas por causa da representação necessária */
     public int pegaQtdNotas() {
         int qtdNotas = 0;
         for(double item: notas) {

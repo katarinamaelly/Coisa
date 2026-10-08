@@ -19,6 +19,7 @@ public class Resumo {
 
     @Override
     public String toString() {
-        return "- " + getTema() + " | " + getConteudo();
+        return getTema() + ": " + getConteudo();
     }
+
 }

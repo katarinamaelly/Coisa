@@ -50,8 +50,8 @@ public class Coisa {
     private static void registrarResumos() {
         RegistroResumos meusResumos = new RegistroResumos(100);  // 100 resumos
 
-        meusResumos.adiciona("Classes", "Classes definem um tipo e a base de código para criação de objetos.");
-        meusResumos.adiciona("Tipo", "Identifica a semântica (operações e significados) de um conjunto de dados.");
+        meusResumos.adicionaResumo("Classes", "Classes definem um tipo e a base de código para criação de objetos.");
+        meusResumos.adicionaResumo("Tipo", "Identifica a semântica (operações e significados) de um conjunto de dados.");
 
 
         String[] resumos = meusResumos.pegaResumos();
