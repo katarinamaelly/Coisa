@@ -64,6 +64,19 @@ public class RegistroResumos {
         }
         return false;
     }
+ /**  deve ser possível fazer uma busca sobre as anotações cadastradas. */
+    /** A busca retorna uma lista de strings com os temas onde a palavra buscada faz parte do conteúdo.
+    A busca deve ignorar se a chave de pesquisa está em maiúscula ou minúscula. Por exemplo, no nosso sistema,
+     ao buscar por "UM", ambos os temas Classes e Tipos devem ser retornados na lista de strings de resposta.
+     O array retornado deve ser apresentado em ordem alfabética ou em ordem lexicográfica. */
+
+    public String[] busca(String chaveDeBusca) {
+        /** algum equals com contains e IgnoreCase */
+
+    }
+
+
+
 }
 
 

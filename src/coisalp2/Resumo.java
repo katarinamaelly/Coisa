@@ -22,4 +22,11 @@ public class Resumo {
         return getTema() + ": " + getConteudo();
     }
 
-}
+    public boolean procuraPalavra() {
+
+    }
+
+
+
+
+     }

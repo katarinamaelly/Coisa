@@ -7,7 +7,7 @@ public class RegistroTempoOnline {
 
     public RegistroTempoOnline(String nomeDisciplina) {
         this(nomeDisciplina, 120); /** deixando as horas pré-definidas de todas disciplinas com 120,
-         quando eu não tiver modificações no momento de "construir a disciplina */
+         quando eu não tiver modificações no momento de "construir" a disciplina */
     }
 
     public RegistroTempoOnline(String nomeDisciplina, int tempoOnlineEsperado) {
