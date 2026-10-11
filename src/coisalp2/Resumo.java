@@ -22,8 +22,10 @@ public class Resumo {
         return getTema() + ": " + getConteudo();
     }
 
-    public boolean procuraPalavra() {
-
+    public boolean procuraPalavra(String chave) {
+        String conteudoMinusculo = conteudo.toLowerCase(); /** converter primeiro todas as palavras para minusculas*/
+        String chaveMinuscula = chave.toLowerCase(); /** ir palavra por palavras */
+        return conteudoMinusculo.contains(chaveMinuscula);
     }
 
 

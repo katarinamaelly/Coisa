@@ -6,14 +6,39 @@ public class Disciplina {
     private final String nomeDisciplina;
     private int horas;
     private double[] notas;
-    private int numeroDeNotas;
     private int[] pesos;
 
-    /** construtor da classe */
+    /** primeiro construtor da classe */
+
     public Disciplina(String nomeDisciplina) {
-        this.nomeDisciplina = nomeDisciplina;
-        this.notas = new double[4];
+        this(nomeDisciplina, 4);
     }
+
+    /** construtor novo onde todas as notas com o mesmo peso */
+    public Disciplina(String nomeDisciplina, int numeroDeNotas) {
+        this(nomeDisciplina, numeroDeNotas, pesosIguais(numeroDeNotas));
+    }
+
+    /** vai poder alterar os pesos das notas no construtor */
+    public Disciplina(String nomeDisciplina, int numeroDeNotas, int[] pesos) {
+        this.nomeDisciplina = nomeDisciplina;
+        this.notas = new double[numeroDeNotas];
+
+        /** aqui vai criar o array para os pesos */
+        this.pesos = new int[pesos.length];
+        for (int i = 0; i < pesos.length; i++) {
+            this.pesos[i] = pesos[i];
+        }
+    }
+
+    private static int[] pesosIguais(int quantidade) {
+        int[] p = new int[quantidade];
+        for (int i = 0; i < quantidade; i++) {
+            p[i] = 1;
+        }
+        return p;
+    }
+
 
     public void cadastraHoras(int horas) {
         this.horas += horas;
@@ -28,28 +53,15 @@ public class Disciplina {
  (6 * notas[0] + 4 * notas[1]) / 10. Caso o array de pesos não seja passado, considere cada nota com mesmo peso
  (ou seja, a média é uma média aritmética: (notas[0] + notas[1]) / 2). */
 
-    public int calculaNota() {
-        this.pesos = new int[numeroDeNotas];
-        double NotaPonderada = 0.0;
-        for(int item: pesos) {
-            NotaPonderada = (item * notas[i]) / 10;
-            if(pesos.length == 0) {
-                NotaPonderada = notas[i];
-            }
-        }
-
-
-    }
-
-    // método em que precisarei para retornar a média para representação String da classe
+    /** método em que precisarei para retornar a média para representação String da classe */
     public double calculaMedia() {
         double somaNotas = 0.0;
-        for(double item: notas) {
-            somaNotas += item;
+        int somaPesos = 0;
+        for (int i = 0; i < notas.length; i++) {
+            somaNotas += pesos[i] * notas[i];
+            somaPesos += pesos[i];
         }
-        double media = somaNotas / 4;
-
-        return media;
+        return somaNotas / somaPesos;
     }
 
     /** foi aprovado ou nn? */
@@ -63,13 +75,8 @@ public class Disciplina {
 
     /** novamente, vou precisar da quantidade de notas por causa da representação necessária */
     public int pegaQtdNotas() {
-        int qtdNotas = 0;
-        for(double item: notas) {
-            qtdNotas++;
+        return notas.length;
         }
-
-        return qtdNotas;
-    }
 
 
     public String getNomeDisciplina() {

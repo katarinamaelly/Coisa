@@ -1,5 +1,7 @@
 package coisalp2;
 
+import java.util.Arrays;
+
 public class RegistroResumos {
     private int numeroDeResumos; /** quantidade máxima de resumos*/
     private Resumo[] resumos;
@@ -71,12 +73,30 @@ public class RegistroResumos {
      O array retornado deve ser apresentado em ordem alfabética ou em ordem lexicográfica. */
 
     public String[] busca(String chaveDeBusca) {
-        /** algum equals com contains e IgnoreCase */
+        int qtdEncontrados = 0;
+        for (int i = 0; i < qtdResumos; i++) {
+            if (resumos[i].procuraPalavra(chaveDeBusca)) {
+                qtdEncontrados++;
+                }
+            }
+
+            String[] temas = new String[qtdEncontrados];
+
+            int pos = 0;
+            for (int i = 0; i < qtdResumos; i++) {
+                if (resumos[i].procuraPalavra(chaveDeBusca)) {
+                    temas[pos] = resumos[i].getTema();
+                    pos++;
+                }
+            }
+
+            Arrays.sort(temas);          /** ordem lexicográfica*/
+            return temas;
+        }
 
     }
 
 
 
-}
 
 
